@@ -11,6 +11,20 @@
 |
 */
 
+use App\Classroom;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::resource('/classroom', 'ClassroomController');
+Route::resource('/room', 'RoomController');
+Route::resource('/schedule', 'ScheduleController');
+Route::resource('/subject', 'SubjectController');
+Route::resource('/teacher', 'TeacherController');
+Route::resource('/weekday', 'WeekdayController');
+
+
+Route::get('db', function(){
+   return Classroom::find(1)->room;
 });
